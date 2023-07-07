@@ -1,65 +1,105 @@
-*{ /* reset das config. padroes de estilo */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  /* reset das config. padroes de estilo */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
 body{
-    font-family: "Oxanium", cursive;
-    background-color: black;
-    color: #ffffff;
+  font-family: "Oxanium", cursive;
+  background-color: black;
+  color: #ffffff;
 }
 
-.cabecalho{
-    display: flex;/* aplica-se nas tags pais, torna flexiveis as tags filhas. a direção padrão é "row" */
-    background-color: aqua;
-    justify-content: center;
-}
-
-.selecao-de-personagens{
-    background-color: blueviolet;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.lista-de-personagens{
-    display: flex;
-    background-color: brown;
-    flex-wrap: wrap;/* quando tiver mais espaço, vai se feita uma quebra de linha */
-    gap: 30px;/* espaçamento entre os itens */
-    justify-content: center;
-}
-
-.personagens{
-    background-color: darkslategray;
-    display: flex;
-    flex-direction: column;/* como o padrão é "row", os elementos ficam um ao lado do outro. No caso, com "column", fica um embaixo do outro */
-    align-items: center;
-    max-width: 585px;
-    gap: 25px;
-}
-
-.titulo{
-    font-size: 20px;
-    letter-spacing: 4px;/* espaço entre as letras */
-    text-transform: uppercase; /* tudo maiúsculo */
-    border-bottom: 2px solid #47f4ff;/* borda do rodapé */
-    width: 100%;
-    text-align: center;
-}
-
-.personagem img{
+body::before{
+/* "antes do body", ele aplica estas configurações. é ideal para poder dar mais efeitos no plano de fundo, como opacidade
+tambem daria pra colocar */
+    content: "";
+    background-image: url(./assets/bg-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 100%;
     height: 100%;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.2;
 }
 
-.personagem.selecionado{ /* uma tag com duas classes = digitar as duas sem espaço
+
+.cabecalho {
+  display: flex; /* aplica-se nas tags pais, torna flexiveis as tags filhas. a direção padrão é "row" */
+  justify-content: center;
+}
+
+.selecao-de-personagens {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  min-height: calc(100vh - 152px);/* 100vh é como se fosse 100% da altura da tela, menos, 152px do topo da pagina (header), estamos descontando a altura do cabeçalho do calculo*/
+  justify-content: center;
+}
+
+.lista-de-personagens {
+  display: flex;
+  flex-wrap: wrap; /* quando tiver mais espaço, vai se feita uma quebra de linha */
+  gap: 30px; /* espaçamento entre os itens */
+  justify-content: center;
+}
+
+.personagens {
+  display: flex;
+  flex-direction: column; /* como o padrão é "row", os elementos ficam um ao lado do outro. No caso, com "column", fica um embaixo do outro */
+  align-items: center;
+  max-width: 585px;
+  gap: 25px;
+}
+
+.titulo {
+  font-size: 20px;
+  letter-spacing: 4px; /* espaço entre as letras */
+  text-transform: uppercase; /* tudo maiúsculo */
+  border-bottom: 2px solid #47f4ff; /* borda do rodapé */
+  width: 100%;
+  text-align: center;
+}
+
+.personagem img {
+  width: 100%;
+  height: 100%;
+}
+
+.personagem.selecionado {
+  /* uma tag com duas classes = digitar as duas sem espaço
 no caso, nós adicionamo a class ".selecionado" através do js, já que não é fixo. no html, a class é só uma ("personagem") */
-    box-shadow: 0px 0px 24px 5px #0271f7;
+  box-shadow: 0px 0px 24px 5px #0271f7;
 }
 
+.personagem-selecionado {
+  text-align: center;
+  max-height: 530px;
+  
+}
+
+.personagem-grande{
+    width: 430px;
+    height: 430px;
+}
+
+.nome-personagem{
+    border-bottom: 2px solid #47f4ff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.descricao-personagem{
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    margin-top: 20px;
+    width: 420px;
+}
