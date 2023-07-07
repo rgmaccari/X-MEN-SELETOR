@@ -103,3 +103,37 @@ no caso, nós adicionamo a class ".selecionado" através do js, já que não é 
     margin-top: 20px;
     width: 420px;
 }
+
+/* Responsiidade */
+@media (max-width: 1265px){/* abaixo disso, aplicam-se essas regras  */
+  .logo{
+    max-width: 190px;
+  }
+  .selecao-de-personagens{
+    flex-direction: column-reverse;/* fica em posi~
+    ao de coluna, porem em ordem inversa */
+    max-width: 430px;
+    margin: 0 auto;
+  }
+  .personagens{
+    margin-top: 37px;
+  }
+  .titulo{
+    font-size: 15px;
+  }
+  .lista-de-personagens{
+    gap: 9px;
+  }
+  .personagem img{
+    width: 80px;
+  }
+  .personagem-grande{
+    width: 350px;
+    height: 350px;
+  }
+  .descricao-personagem{
+    width: 80%;
+    font-size: 16px;
+    margin: 20px auto;
+  }
+}
