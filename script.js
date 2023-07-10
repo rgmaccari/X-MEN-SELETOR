@@ -1,24 +1,33 @@
+/* OBJETIVO 1 - ao passar o mouse em cima, adicionar a classe "selecionado" ao elemento*/
 const personagens = document.querySelectorAll('.personagem');
-/* 
-const = variável que não muda
-personagens = nome da variavel
-document = toda a estrutura
-querySelectorAll = seletor que analisa todos os elementos dentre class, id, tag, etc...
-.personagem = Class, onde estao todos os personagens da lista
-*/
 
 personagens.forEach((personagem) => {
     personagem.addEventListener('mouseenter', () => {
-        personagem.classList.add('selecionado');
-        const personagemSelecionado = document.querySelector('selecionado')
         
+        const personagemSelecionado = document.querySelector('.selecionado');
+        personagemSelecionado.classList.remove('selecionado');
+        personagem.classList.add('selecionado');
+
+/* OBJETIVO 2 - ao passar o mouse em cima, alterar a imagem, nome e descrição */
+        const imagemPersonagemGrande = document.querySelector('.personagem-grande');
+        const idPersonagem = personagem.attributes.id.value;
+        imagemPersonagemGrande.src = `./assets/card-${idPersonagem}.png`;
+
+        const nomePersonagem = document.getElementById('nome-personagem');
+        nomePersonagem.innerText = personagem.getAttribute('data-name');
+
+        const descricaoPersonagem = document.getElementById('descricao-personagem');
+        descricaoPersonagem.innerText = personagem.getAttribute('data-description');
     })
 })
+
 /* 
-personagens = const
+const = variável que não muda
+document = toda a estrutura
+querySelectorAll = seletor que analisa todos os elementos dentre class, id, tag, etc...
+
 forEach = para cada (usamos isso ao inves de selecionar item por item da lista)
-personagem = class onde vai ser aplicada a ação
-=> = o que vai acontecer?, chamamos de linkagem
-personagem = class
+=> = o que vai acontecer?, especie de linkagem
 addEventListener = identifica qualquer ação dentro daquela class
-mouseenter = passar o mouse em cima*/
+mouseenter = passar o mouse em cima
+ */
