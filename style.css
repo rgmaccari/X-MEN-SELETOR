@@ -73,7 +73,7 @@ tambem daria pra colocar */
   height: 100%;
 }
 
-.personagem.selecionado {
+.selecionado {
   /* uma tag com duas classes = digitar as duas sem espaço
 no caso, nós adicionamo a class ".selecionado" através do js, já que não é fixo. no html, a class é só uma ("personagem") */
   box-shadow: 0px 0px 24px 5px #0271f7;
